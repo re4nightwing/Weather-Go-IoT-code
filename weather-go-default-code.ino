@@ -1,20 +1,3 @@
-/***************************************************************************
-  This is a library for the BMP280 humidity, temperature & pressure sensor
-
-  Designed specifically to work with the Adafruit BMP280 Breakout
-  ----> http://www.adafruit.com/products/2651
-
-  These sensors use I2C or SPI to communicate, 2 or 4 pins are required
-  to interface.
-
-  Adafruit invests time and resources providing this open source code,
-  please support Adafruit andopen-source hardware by purchasing products
-  from Adafruit!
-
-  Written by Limor Fried & Kevin Townsend for Adafruit Industries.
-  BSD license, all text above must be included in any redistribution
- ***************************************************************************/
-
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_BMP280.h>
@@ -27,16 +10,24 @@
 #define BMP_CS   (10)
 
 Adafruit_BMP280 bmp; 
+/*
+* Change SSID to your wifi router or hotspot SSID
+* Change Password to wifi connection's password
+*/
 const char* ssid = "BELL4G-F6D1";
 const char* password = "HL94FN1JNH1";
 
+/*
+* Replace `device_sec` with your device's device security key received by signing up the device at the https://weather-go.000webhostapp.com
+* Replace `device_id` with your device's device ID received by signing up the device at the https://weather-go.000webhostapp.com
+*/
 const char* device_sec = "6287b73abc8dc";
 const char* device_id = "6287b725af47a";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 120000; //1s = 1000
 
-String serverName = "https://weather-go.000webhostapp.com/api.php";
+String serverName = "https://weather-go.000webhostapp.com/api.php"; //Do not change
 
 void setup() {
   Serial.begin(9600);
